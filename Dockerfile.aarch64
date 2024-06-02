@@ -5,7 +5,11 @@ ARG BUILD_DATE
 ARG VERSION
 ARG FIREFOX_VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
-LABEL maintainer="thelamer"
+LABEL maintainer="tibor309"
+LABEL org.opencontainers.image.description="Web accessible Firefox browser."
+LABEL org.opencontainers.image.source=https://github.com/tibor309/firefox
+LABEL org.opencontainers.image.url=https://github.com/tibor309/firefox/packages
+LABEL org.opencontainers.image.licenses=GPL-3.0
 
 # title
 ENV TITLE=Firefox
@@ -14,7 +18,10 @@ RUN \
   echo "**** add icon ****" && \
   curl -o \
     /kclient/public/icon.png \
-    https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/firefox-logo.png && \
+    https://raw.githubusercontent.com/tibor309/icons/master/icons/firefox/firefox_logo_256x256.png && \
+  curl -o \
+    /kclient/public/favicon.ico \
+    https://raw.githubusercontent.com/tibor309/icons/master/icons/firefox/firefox_icon_128x128.ico && \
   echo "**** install packages ****" && \
   if [ -z ${FIREFOX_VERSION+x} ]; then \
     FIREFOX_VERSION=$(curl -sL "http://dl-cdn.alpinelinux.org/alpine/v3.20/community/x86_64/APKINDEX.tar.gz" | tar -xz -C /tmp \
