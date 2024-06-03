@@ -21,7 +21,7 @@ RUN \
     https://raw.githubusercontent.com/tibor309/icons/master/icons/firefox/firefox_logo_256x256.png && \
   curl -o \
     /kclient/public/favicon.ico \
-    https://raw.githubusercontent.com/tibor309/icons/master/icons/firefox/firefox_icon_128x128.ico && \
+    https://raw.githubusercontent.com/tibor309/icons/master/icons/firefox/firefox_icon_32x32.ico && \
   echo "**** install packages ****" && \
   if [ -z ${FIREFOX_VERSION+x} ]; then \
     FIREFOX_VERSION=$(curl -sL "http://dl-cdn.alpinelinux.org/alpine/v3.20/community/x86_64/APKINDEX.tar.gz" | tar -xz -C /tmp \
