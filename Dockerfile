@@ -12,7 +12,7 @@ LABEL org.opencontainers.image.url=https://github.com/tibor309/firefox/packages
 LABEL org.opencontainers.image.licenses=GPL-3.0
 
 # title
-ENV TITLE=Firefox
+ENV TITLE="Firefox ESR"
 
 RUN \
   echo "**** add icon ****" && \
@@ -25,15 +25,15 @@ RUN \
   echo "**** install packages ****" && \
   if [ -z ${FIREFOX_VERSION+x} ]; then \
     FIREFOX_VERSION=$(curl -sL "http://dl-cdn.alpinelinux.org/alpine/v3.20/community/x86_64/APKINDEX.tar.gz" | tar -xz -C /tmp \
-    && awk '/^P:firefox$/,/V:/' /tmp/APKINDEX | sed -n 2p | sed 's/^V://'); \
+    && awk '/^P:firefox-esr$/,/V:/' /tmp/APKINDEX | sed -n 2p | sed 's/^V://'); \
   fi && \
   apk add --no-cache \
-    firefox==${FIREFOX_VERSION} && \
+    firefox-esr==${FIREFOX_VERSION} && \
   echo "**** lang support ****" && \
-  FF_VERSION=$(curl -sI https://download.mozilla.org/?product=firefox-latest | awk -F '(releases/|/win32)' '/Location/ {print $2}') && \
-  REL_URL="https://releases.mozilla.org/pub/firefox/releases/${FF_VERSION}/win64/xpi/" && \
+  FF_VERSION=$(curl -sI https://download.mozilla.org/?product=firefox-esr-latest | awk -F '(releases/|/win32)' '/Location/ {print $2}') && \
+  REL_URL="https://releases.mozilla.org/pub/firefox/releases/${FF_VERSION}esr/win64/xpi/" && \
   LANGS=$(curl -Ls ${REL_URL} | awk -F '(xpi">|</a>)' '/href.*xpi/ {print $2}' | tr '\n' ' ') && \
-  EXT_DIR=/usr/lib/firefox/distribution/extensions/ && \
+  EXT_DIR=/usr/lib/firefox-esr/distribution/extensions/ && \
   mkdir -p ${EXT_DIR} && \
   for LANG in ${LANGS}; do \
     LANGCODE=$(echo ${LANG} | sed 's/\.xpi//g'); \
@@ -43,7 +43,7 @@ RUN \
       ${REL_URL}${LANG};\
   done && \
   echo "**** default firefox settings ****" && \
-  FIREFOX_SETTING="/usr/lib/firefox/browser/defaults/preferences/firefox.js" && \
+  FIREFOX_SETTING="/usr/lib/firefox-esr/browser/defaults/preferences/firefox.js" && \
   echo 'pref("datareporting.policy.firstRunURL", "");' > ${FIREFOX_SETTING} && \
   echo 'pref("datareporting.policy.dataSubmissionEnabled", false);' >> ${FIREFOX_SETTING} && \
   echo 'pref("datareporting.healthreport.service.enabled", false);' >> ${FIREFOX_SETTING} && \

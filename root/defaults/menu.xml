@@ -6,9 +6,9 @@
                 <command>/usr/bin/xterm</command>
             </action>
         </item>
-        <item label="FireFox" icon="/usr/share/icons/hicolor/48x48/apps/firefox.png">
+        <item label="FireFox ESR" icon="/usr/share/icons/hicolor/48x48/apps/firefox-esr.png">
             <action name="Execute">
-                <command>/usr/bin/firefox</command>
+                <command>/usr/bin/firefox-esr</command>
             </action>
         </item>
     </menu>
