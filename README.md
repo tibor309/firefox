@@ -4,7 +4,7 @@ This container allows you to access the [firefox web browser][firefox] trough an
 ## Setup
 
 To set up the container, you can either use docker-compose or the docker cli. You can also use options and additional settings/mods from linuxserver.io.
-And to update the container, simply pull the latest image, and redeploy it.
+And to update the container, simply pull the latest image, and redeploy it. The [ESR][esr] (extended support release) version is also available!
 
 ### [docker-compose][dcompose] (recommended)
 
@@ -70,6 +70,8 @@ To access the container, navigate to the ip address for your machine with the po
 * [http://yourhost:3000/][link]
 * [https://yourhost:3001/][link]
 
+
+[esr]: https://github.com/tibor309/firefox/tree/esr
 
 [firefox]: https://www.mozilla.org/en-US/firefox/new/
 [kasm]: https://kasmweb.com/kasmvnc
