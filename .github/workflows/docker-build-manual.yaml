@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Disable Firefox snap
         run: |
-          cat <<EOF >> /etc/apt/preferences.d/firefox
+          sudo cat <<EOF >> /etc/apt/preferences.d/firefox
           Package: firefox*
           Pin: release o=Ubuntu*
           Pin-Priority: -1
@@ -18,8 +18,8 @@ jobs:
 
       - name: Add Firefox PPA
         run: |
-          add-apt-repository ppa:mozillateam/ppa -y
-          apt update
+          sudo add-apt-repository ppa:mozillateam/ppa -y
+          sudo apt-get update
 
       - name: Get package version
         id: getver
