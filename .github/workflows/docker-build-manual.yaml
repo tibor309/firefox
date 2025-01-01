@@ -53,4 +53,4 @@ jobs:
           push: true
           tags: |
             ghcr.io/tibor309/firefox:esr
-            ghcr.io/tibor309/firefox:esr-${{ needs.get-version.outputs.PKG_VER }}
+            ghcr.io/tibor309/firefox:${{ needs.get-version.outputs.PKG_VER }}
