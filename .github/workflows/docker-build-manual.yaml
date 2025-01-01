@@ -10,11 +10,8 @@ jobs:
     steps:
       - name: Disable Firefox snap
         run: |
-          sudo cat <<EOF >> /etc/apt/preferences.d/firefox
-          Package: firefox*
-          Pin: release o=Ubuntu*
-          Pin-Priority: -1
-          EOF
+          sudo echo -e "Package: firefox*\nPin: release o=Ubuntu*\nPin-Priority: -1" > firefox-no-snap
+          sudo mv ./firefox-no-snap /etc/apt/preferences.d/
 
       - name: Add Firefox PPA
         run: |
