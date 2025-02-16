@@ -1,10 +1,8 @@
 # 🦊 Firefox Browser
-This container allows you to access the [firefox web browser][firefox] trough another web browser using [kasmvnc][kasm].
+This container allows you to use [firefox][firefox] trough another web browser using [kasmvnc][kasm].
 
 ## Setup
-
-To set up the container, you can either use docker-compose or the docker cli. You can also use options and additional settings/mods from linuxserver.io.
-And to update the container, simply pull the latest image, and redeploy it. The [ESR][esr] (extended support release) version is also available!
+To set up the container, you can either use docker-compose or the docker cli. You can also use options and additional settings/mods from linuxserver.io. For updating the container, simply re-pull the image, and deploy it. The [esr][esr_build] version of the browser is also availlable!
 
 ### [docker-compose][dcompose] (recommended)
 
@@ -49,8 +47,7 @@ docker run -d \
 ```
 
 ## Config
-
-You can find additional parameters and settings from the [linuxserver/docker-firefox][firefox-setup] project page!
+You can also use additional parameters and settings from the [linuxserver/docker-firefox][firefox-setup] project!
 
 | Parameter | Function |
 | :----: | --- |
@@ -71,7 +68,7 @@ To access the container, navigate to the ip address for your machine with the po
 * [https://yourhost:3001/][link]
 
 
-[esr]: https://github.com/tibor309/firefox/tree/esr
+[esr_build]: https://github.com/tibor309/firefox/tree/esr
 
 [firefox]: https://www.mozilla.org/en-US/firefox/new/
 [kasm]: https://kasmweb.com/kasmvnc
