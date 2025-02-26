@@ -26,13 +26,17 @@ RUN \
   curl -o \
     /kclient/public/favicon.ico \
     https://raw.githubusercontent.com/tibor309/icons/main/icons/firefox/firefox_icon_32x32.ico && \
+  echo "**** add package sources ****" && \
+  curl -vSLo \
+    /etc/apt/keyrings/packages.mozilla.org.asc \
+    https://packages.mozilla.org/apt/repo-signing-key.gpg && \
+  echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | tee -a /etc/apt/sources.list.d/mozilla.list && \
   echo "**** install packages ****" && \
-  add-apt-repository -y ppa:mozillateam/ppa && \
   apt-get update -y && \
   apt-get install --no-install-recommends -y \
-    firefox-esr \
-    ^firefox-esr-locale && \
+    firefox-esr && \
   echo "**** default firefox settings ****" && \
+  mkdir -p "/usr/lib/firefox-esr/browser/defaults/preferences" && \
   FIREFOX_SETTING="/usr/lib/firefox-esr/browser/defaults/preferences/firefox.js" && \
   echo 'pref("datareporting.policy.firstRunURL", "");' > ${FIREFOX_SETTING} && \
   echo 'pref("datareporting.policy.dataSubmissionEnabled", false);' >> ${FIREFOX_SETTING} && \
