@@ -22,18 +22,18 @@ jobs:
     steps:
       - name: Disable Firefox snap
         run: |
-          sudo echo -e "Package: firefox*\nPin: release o=Ubuntu*\nPin-Priority: -1" > firefox-no-snap
-          sudo mv ./firefox-no-snap /etc/apt/preferences.d/
+          echo -e "Package: firefox*\nPin: release o=Ubuntu*\nPin-Priority: -1" | sudo tee -a /etc/apt/preferences.d/no-firefox-snap
 
-      - name: Add Firefox PPA
+      - name: Add Mozilla package repo
         run: |
-          sudo add-apt-repository ppa:mozillateam/ppa -y
+          sudo curl -vSLo /etc/apt/keyrings/packages.mozilla.org.asc https://packages.mozilla.org/apt/repo-signing-key.gpg
+          echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | sudo tee -a /etc/apt/sources.list.d/mozilla.list
           sudo apt-get update
 
       - name: Get package version
         id: version
         run: |
-          PKG_VER=$(apt list firefox-esr | awk -F'[ /]' '/firefox-esr/ {print $3}' | cut -d'+' -f1)
+          PKG_VER=$(apt list firefox-esr | cut -d' ' -f2 | cut -d'~' -f1)
           echo "PKG_VER=${PKG_VER}" >> $GITHUB_OUTPUT
           echo "The package version is $PKG_VER"
 
