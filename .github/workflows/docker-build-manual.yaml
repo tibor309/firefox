@@ -67,6 +67,8 @@ jobs:
           platforms: linux/amd64,linux/arm64
           file: ./Dockerfile
           push: true
+          build-args: |
+            IMAGE_BUILD_DATE=${{ needs.get-date.outputs.IMG_DATE }}
           tags: |
             ghcr.io/tibor309/firefox:esr
             ghcr.io/tibor309/firefox:${{ needs.get-version.outputs.PKG_VER }}
