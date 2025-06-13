@@ -1,3 +1,16 @@
+[esr_build]: https://github.com/tibor309/firefox/tree/esr
+[firefox]: https://www.mozilla.org/en-US/firefox/new/
+[kasm]: https://kasmweb.com/kasmvnc
+[firefox-setup]: https://github.com/linuxserver/docker-firefox/blob/master/README.md#application-setup
+
+[dhub]: https://hub.docker.com/r/tibordev/firefox
+[dcompose]: https://docs.linuxserver.io/general/docker-compose
+[dcli]: https://docs.docker.com/engine/reference/commandline/cli/
+[flags]: https://wiki.mozilla.org/Firefox/CommandLineOptions
+[tz]: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
+[link]: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+
+
 # 🦊 Firefox Browser
 This container allows you to use the [firefox][firefox] web browser trough another web browser using [kasmvnc][kasm].
 
@@ -5,6 +18,9 @@ This container allows you to use the [firefox][firefox] web browser trough anoth
 
 ## Setup
 To set up the container, you can either use docker-compose or the docker cli. You can also use options and additional settings/mods from linuxserver.io. For updating the container, simply re-pull the image, and deploy it. The [esr][esr_build] version of the browser is also availlable!
+
+> [!NOTE]
+> This image is also available on [Docker Hub][dhub] under `tibordev/firefox`.
 
 ### [docker-compose][dcompose] (recommended)
 
@@ -68,17 +84,3 @@ To access the container, navigate to the ip address for your machine with the po
 
 * [http://yourhost:3000/][link]
 * [https://yourhost:3001/][link]
-
-
-[esr_build]: https://github.com/tibor309/firefox/tree/esr
-
-[firefox]: https://www.mozilla.org/en-US/firefox/new/
-[kasm]: https://kasmweb.com/kasmvnc
-[firefox-setup]: https://github.com/linuxserver/docker-firefox/blob/master/README.md#application-setup
-
-[dcompose]: https://docs.linuxserver.io/general/docker-compose
-[dcli]: https://docs.docker.com/engine/reference/commandline/cli/
-[flags]: https://wiki.mozilla.org/Firefox/CommandLineOptions
-[tz]: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
-[link]: https://www.youtube.com/watch?v=dQw4w9WgXcQ
-

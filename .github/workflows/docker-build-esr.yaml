@@ -1,7 +1,8 @@
 name: "Build Docker image for esr channel"
+description: "Builds the Docker image and pushes it to the GitHub Container Registry and Docker Hub. Runs on the first day of each month at 00:05."
 on:
   schedule:
-    - cron: "0 0 1 * *"
+    - cron: "5 0 1 * *"
 
 permissions:
       contents: read
@@ -45,16 +46,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: [get-date, get-version]
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           ref: 'esr'
-
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
 
       - name: Login to GitHub container registry
         uses: docker/login-action@v3
@@ -62,6 +57,18 @@ jobs:
           registry: ghcr.io
           username: tibor309
           password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: tibordev
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
 
       - name: Build and push image for amd64/arm64
         uses: docker/build-push-action@v6
@@ -75,3 +82,5 @@ jobs:
           tags: |
             ghcr.io/tibor309/firefox:esr
             ghcr.io/tibor309/firefox:${{ needs.get-version.outputs.PKG_VER }}
+            tibordev/firefox:esr
+            tibordev/firefox:${{ needs.get-version.outputs.PKG_VER }}
