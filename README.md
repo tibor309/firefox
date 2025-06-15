@@ -2,6 +2,7 @@
 [firefox]: https://www.mozilla.org/en-US/firefox/new/
 [kasm]: https://kasmweb.com/kasmvnc
 [firefox-setup]: https://github.com/linuxserver/docker-firefox/blob/master/README.md#application-setup
+[repo]: https://github.com/tibor309/firefox
 
 [dhub]: https://hub.docker.com/r/tibordev/firefox
 [dcompose]: https://docs.linuxserver.io/general/docker-compose
@@ -11,7 +12,7 @@
 [link]: https://www.youtube.com/watch?v=dQw4w9WgXcQ
 
 
-# 🦊 Firefox Browser
+# 🦊 [Firefox Browser][repo]
 This container allows you to use the [firefox][firefox] web browser trough another web browser using [kasmvnc][kasm].
 
 ![firefox](https://github.com/user-attachments/assets/f5504c48-456d-47d3-8174-b29252a12839)
