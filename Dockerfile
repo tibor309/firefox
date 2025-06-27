@@ -22,7 +22,7 @@ ENV LSIO_FIRST_PARTY=false
 ENV TITLE="Firefox"
 
 # prevent Ubuntu's firefox stub from being installed
-COPY /root/etc/apt/preferences.d/firefox-no-snap /etc/apt/preferences.d/firefox-no-snap
+COPY /root/etc/apt/preferences.d/mozilla /etc/apt/preferences.d/mozilla
 
 RUN \
   echo "**** add icon ****" && \
@@ -33,19 +33,16 @@ RUN \
     /usr/share/selkies/www/favicon.ico \
     https://raw.githubusercontent.com/tibor309/icons/main/icons/firefox/firefox_icon_32x32.ico && \
   echo "**** install packages ****" && \
-  add-apt-repository -y ppa:mozillateam/ppa && \
+  curl -vSLo \
+    /etc/apt/keyrings/packages.mozilla.org.asc \
+    https://packages.mozilla.org/apt/repo-signing-key.gpg && \
+  echo \
+    "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" \
+    > /etc/apt/sources.list.d/mozilla.list && \
   apt-get update -y && \
   apt-get install --no-install-recommends -y \
     firefox \
-    ^firefox-locale && \
-  echo "**** default firefox settings ****" && \
-  FIREFOX_SETTING="/usr/lib/firefox/browser/defaults/preferences/firefox.js" && \
-  echo 'pref("datareporting.policy.firstRunURL", "");' > ${FIREFOX_SETTING} && \
-  echo 'pref("datareporting.policy.dataSubmissionEnabled", false);' >> ${FIREFOX_SETTING} && \
-  echo 'pref("datareporting.healthreport.service.enabled", false);' >> ${FIREFOX_SETTING} && \
-  echo 'pref("datareporting.healthreport.uploadEnabled", false);' >> ${FIREFOX_SETTING} && \
-  echo 'pref("trailhead.firstrun.branches", "nofirstrun-empty");' >> ${FIREFOX_SETTING} && \
-  echo 'pref("browser.aboutwelcome.enabled", false);' >> ${FIREFOX_SETTING} && \
+    ^firefox-l10n && \
   echo "**** cleanup ****" && \
   apt-get autoclean && \
   rm -rf \
