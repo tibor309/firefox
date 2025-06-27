@@ -1,4 +1,4 @@
-FROM ghcr.io/linuxserver/baseimage-kasmvnc:ubuntunoble
+FROM ghcr.io/linuxserver/baseimage-selkies:ubuntunoble
 
 # set labels
 ARG IMAGE_BUILD_DATE
@@ -11,14 +11,14 @@ LABEL org.opencontainers.image.source="https://github.com/tibor309/firefox"
 LABEL org.opencontainers.image.url="https://github.com/tibor309/firefox/packages"
 LABEL org.opencontainers.image.licenses="GPL-3.0"
 LABEL org.opencontainers.image.documentation="https://github.com/tibor309/firefox/blob/master/README.md"
-LABEL org.opencontainers.image.base.name="ghcr.io/linuxserver/baseimage-kasmvnc:ubuntunoble"
-LABEL org.opencontainers.image.base.documentation="https://github.com/linuxserver/docker-baseimage-kasmvnc/blob/master/README.md"
+LABEL org.opencontainers.image.base.name="ghcr.io/linuxserver/baseimage-selkies:ubuntunoble"
+LABEL org.opencontainers.image.base.documentation="https://github.com/linuxserver/docker-baseimage-selkies/blob/master/README.md"
 
 # branding
 ENV LSIO_FIRST_PARTY=false
 
 # title
-ENV TITLE=Firefox
+ENV TITLE="Firefox"
 
 # prevent Ubuntu's firefox stub from being installed
 COPY /root/etc/apt/preferences.d/firefox-no-snap /etc/apt/preferences.d/firefox-no-snap
@@ -26,10 +26,10 @@ COPY /root/etc/apt/preferences.d/firefox-no-snap /etc/apt/preferences.d/firefox-
 RUN \
   echo "**** add icon ****" && \
   curl -o \
-    /kclient/public/icon.png \
+    /usr/share/selkies/www/icon.png \
     https://raw.githubusercontent.com/tibor309/icons/main/icons/firefox/firefox_logo_256x256.png && \
   curl -o \
-    /kclient/public/favicon.ico \
+    /usr/share/selkies/www/favicon.ico \
     https://raw.githubusercontent.com/tibor309/icons/main/icons/firefox/firefox_icon_32x32.ico && \
   echo "**** install packages ****" && \
   add-apt-repository -y ppa:mozillateam/ppa && \
@@ -59,5 +59,4 @@ COPY /root /
 
 # ports and volumes
 EXPOSE 3000
-
 VOLUME /config
