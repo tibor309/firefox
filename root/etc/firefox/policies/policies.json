@@ -1,0 +1,31 @@
+{
+  "policies": {
+    "DisableAppUpdate": true,
+    "ManualAppUpdateOnly": true,
+    "DisableTelemetry": true,
+    "DisableFirefoxStudies": true,
+    "DisablePocket": true,
+    "DisableFeedbackCommands": true,
+    "DontCheckDefaultBrowser": true,
+    "DisableSetDesktopBackground": true,
+    "NoDefaultBookmarks": true,
+    "DisableProfileImport": true,
+    "FirefoxHome": {
+      "SponsoredTopSites": false,
+      "Pocket": false,
+      "SponsoredPocket": false
+    },
+    "FirefoxSuggest": {
+      "SponsoredSuggestions": false
+    },
+    "Preferences": {
+      "app.update.url.manual": "https://github.com/tibor309/firefox",
+      "datareporting.policy.firstRunURL": "",
+      "datareporting.policy.dataSubmissionEnabled": false,
+      "datareporting.healthreport.service.enabled": false,
+      "datareporting.healthreport.uploadEnabled": false,
+      "trailhead.firstrun.branches": "nofirstrun-empty",
+      "browser.aboutwelcome.enabled": false
+    }
+  }
+}
