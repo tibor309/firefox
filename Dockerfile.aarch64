@@ -3,6 +3,7 @@ FROM ghcr.io/linuxserver/baseimage-kasmvnc:arm64v8-ubuntunoble
 # set labels
 ARG IMAGE_BUILD_DATE
 LABEL maintainer="tibor309"
+LABEL release_channel="stable"
 LABEL org.opencontainers.image.authors="Tibor (https://github.com/tibor309)"
 LABEL org.opencontainers.image.created="${IMAGE_BUILD_DATE}"
 LABEL org.opencontainers.image.title="Firefox"
@@ -56,5 +57,4 @@ COPY /root /
 
 # ports and volumes
 EXPOSE 3000
-
 VOLUME /config
