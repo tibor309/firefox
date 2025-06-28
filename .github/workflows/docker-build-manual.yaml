@@ -25,13 +25,18 @@ jobs:
     outputs:
       PKG_VER: ${{ steps.version.outputs.PKG_VER }}
     steps:
-      - name: Disable Firefox snap
+      - name: Override Ubuntu repos
         run: |
-          echo -e "Package: firefox*\nPin: release o=Ubuntu*\nPin-Priority: -1" | sudo tee -a /etc/apt/preferences.d/no-firefox-snap
+          echo -e "Package: *\nPin: origin packages.mozilla.org\nPin-Priority: 1000" | sudo tee -a /etc/apt/preferences.d/mozilla
 
-      - name: Add Firefox PPA
+      - name: Add Mozilla APT repo
         run: |
-          sudo add-apt-repository ppa:mozillateam/ppa -y
+          sudo curl -vSLo \
+            /etc/apt/keyrings/packages.mozilla.org.asc \
+            https://packages.mozilla.org/apt/repo-signing-key.gpg
+          sudo echo \
+            "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" \
+            > /etc/apt/sources.list.d/mozilla.list && \
           sudo apt-get update
 
       - name: Get package version
