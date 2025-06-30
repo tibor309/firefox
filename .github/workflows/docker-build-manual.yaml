@@ -34,10 +34,10 @@ jobs:
           sudo curl -vSLo \
             /etc/apt/keyrings/packages.mozilla.org.asc \
             https://packages.mozilla.org/apt/repo-signing-key.gpg
-          sudo echo \
-            "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" \
-            > /etc/apt/sources.list.d/mozilla.list && \
-          sudo apt-get update
+          echo \
+            "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | \
+            sudo tee -a /etc/apt/sources.list.d/mozilla.list && \
+          sudo apt-get update -y
 
       - name: Get package version
         id: version
