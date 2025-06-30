@@ -1,15 +1,16 @@
-name: "Build Docker image for stable channel"
-description: "Builds the Docker image and pushes it to the GitHub Container Registry and Docker Hub. Runs on the first day of each month at 00:00 UTC."
+name: "Build Docker image - stable"
+description: "Builds the Docker image for the stable release and pushes it to the GitHub Container Registry and Docker Hub. This workflow is triggered on the first day of each month at 00:00 UTC, or manually via workflow_dispatch."
 on:
   schedule:
     - cron: "0 0 1 * *"
+  workflow_dispatch:
 
 permissions:
   contents: read
   packages: write
 
 jobs:
-  get-date:
+  get_date:
     runs-on: ubuntu-latest
     outputs:
       IMG_DATE: ${{ steps.date.outputs.IMG_DATE }}
@@ -21,19 +22,24 @@ jobs:
           echo "IMG_DATE=${IMG_DATE}" >> $GITHUB_OUTPUT
           echo "The date is $IMG_DATE"
 
-  get-version:
+  get_pkg_version:
     runs-on: ubuntu-latest
     outputs:
       PKG_VER: ${{ steps.version.outputs.PKG_VER }}
     steps:
-      - name: Disable Firefox snap
+      - name: Override Ubuntu repos
         run: |
-          echo -e "Package: firefox*\nPin: release o=Ubuntu*\nPin-Priority: -1" | sudo tee -a /etc/apt/preferences.d/no-firefox-snap
+          echo -e "Package: *\nPin: origin packages.mozilla.org\nPin-Priority: 1000" | sudo tee -a /etc/apt/preferences.d/mozilla
 
-      - name: Add Firefox PPA
+      - name: Add Mozilla APT repo
         run: |
-          sudo add-apt-repository ppa:mozillateam/ppa -y
-          sudo apt-get update
+          sudo curl -vSLo \
+            /etc/apt/keyrings/packages.mozilla.org.asc \
+            https://packages.mozilla.org/apt/repo-signing-key.gpg
+          echo \
+            "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" \
+            | sudo tee -a /etc/apt/sources.list.d/mozilla.list && \
+          sudo apt-get update -y
 
       - name: Get package version
         id: version
@@ -42,9 +48,9 @@ jobs:
           echo "PKG_VER=${PKG_VER}" >> $GITHUB_OUTPUT
           echo "The package version is $PKG_VER"
 
-  build-image:
+  build_push:
     runs-on: ubuntu-latest
-    needs: [get-date, get-version]
+    needs: [get_date, get_pkg_version]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -78,11 +84,11 @@ jobs:
           file: ./Dockerfile
           push: true
           build-args: |
-            IMAGE_BUILD_DATE=${{ needs.get-date.outputs.IMG_DATE }}
+            IMAGE_BUILD_DATE=${{ needs.get_date.outputs.IMG_DATE }}
           tags: |
             ghcr.io/tibor309/firefox:latest
             ghcr.io/tibor309/firefox:stable
-            ghcr.io/tibor309/firefox:${{ needs.get-version.outputs.PKG_VER }}
+            ghcr.io/tibor309/firefox:${{ needs.get_pkg_version.outputs.PKG_VER }}
             tibordev/firefox:latest
             tibordev/firefox:stable
-            tibordev/firefox:${{ needs.get-version.outputs.PKG_VER }}
+            tibordev/firefox:${{ needs.get_pkg_version.outputs.PKG_VER }}
