@@ -21,5 +21,16 @@
 		"ghcr.io/dhoeric/features/act:1": {
 			"version": "latest"
 		}
-	}
+	},
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-azuretools.vscode-containers",
+                "github.copilot",
+                "github.vscode-github-actions",
+                "eamodio.gitlens",
+                "yzhang.markdown-all-in-one"
+            ]
+        }
+    }
 }
