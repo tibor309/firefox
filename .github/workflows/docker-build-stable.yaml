@@ -46,7 +46,7 @@ jobs:
       - name: Get package version
         id: version
         run: |
-          PKG_VER=$(apt list firefox | awk -F'[ /]' '/firefox/ {print $3}' | cut -d'+' -f1)
+          PKG_VER=$(apt list firefox | awk -F'[ /]' '/firefox/ {print $3}' | cut -d'~' -f1)
           echo "PKG_VER=${PKG_VER}" >> $GITHUB_OUTPUT
           echo "The package version is $PKG_VER"
 
