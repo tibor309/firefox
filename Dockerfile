@@ -25,13 +25,6 @@ ENV TITLE="Firefox"
 COPY /root/etc/apt/preferences.d/mozilla /etc/apt/preferences.d/mozilla
 
 RUN \
-  echo "**** add icon ****" && \
-  curl -o \
-    /usr/share/selkies/www/icon.png \
-    https://raw.githubusercontent.com/tibor309/icons/refs/heads/main/firefox/icon.png && \
-  curl -o \
-    /usr/share/selkies/www/favicon.ico \
-    https://raw.githubusercontent.com/tibor309/icons/refs/heads/main/firefox/favicon.ico && \
   echo "**** install packages ****" && \
   curl -vSLo \
     /etc/apt/keyrings/packages.mozilla.org.asc \
