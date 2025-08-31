@@ -1,7 +1,6 @@
 {
   "policies": {
     "DisableAppUpdate": true,
-    "ManualAppUpdateOnly": true,
     "DisableTelemetry": true,
     "DisableFirefoxStudies": true,
     "DisablePocket": true,
@@ -19,7 +18,6 @@
       "SponsoredSuggestions": false
     },
     "Preferences": {
-      "app.update.url.manual": "https://github.com/tibor309/firefox",
       "datareporting.policy.firstRunURL": "",
       "datareporting.policy.dataSubmissionEnabled": false,
       "datareporting.healthreport.service.enabled": false,
