@@ -1,6 +1,6 @@
 # 🦊 [Firefox](https://github.com/tibor309/firefox)
 
-This container allows you to use the [Firefox](https://www.mozilla.org/en-US/firefox/new/) web browser trough another web browser. Firefox is a free web browser backed by Mozilla, a non-profit dedicated to internet health and privacy.
+This container allows you to use the [Firefox](https://www.mozilla.org/en-US/firefox/new/) web browser trough another web browser using KasmVNC. Firefox is a free web browser backed by Mozilla, a non-profit dedicated to internet health and privacy.
 
 ![firefox](https://github.com/user-attachments/assets/f5504c48-456d-47d3-8174-b29252a12839)
 
@@ -62,7 +62,7 @@ By default, this container has no authentication. Configure the optional environ
 
 ## Config
 
-Containers are configured using parameters passed at runtime (such as those above). These parameters are separated by a colon and indicate `<external>:<internal>` respectively. For example, `-p 8080:80` would expose port `80` from inside the container to be accessible from the host's IP on port `8080` outside the container. Further options can be found on the [Selkies Base Images](https://github.com/linuxserver/docker-baseimage-selkies#options) repo.
+Containers are configured using parameters passed at runtime (such as those above). These parameters are separated by a colon and indicate `<external>:<internal>` respectively. For example, `-p 8080:80` would expose port `80` from inside the container to be accessible from the host's IP on port `8080` outside the container. Further options can be found on the [KasmVNC Base Images](https://github.com/linuxserver/docker-baseimage-kasmvnc#options) repo.
 
 | Parameter | Function |
 | :----: | --- |
