@@ -8,9 +8,6 @@ This container allows you to use the [Firefox](https://www.mozilla.org/en-US/fir
 
 To set up the container, you can use docker-compose or the docker cli. Unless a parameter is flagged as 'optional', it is *mandatory* and a value must be provided. This container is using a linuxserver.io base, so you can use their [mods](https://github.com/linuxserver/docker-mods) and configurations to enable additional functionality within the container.
 
-> [!WARNING]
-> The [esr](https://github.com/tibor309/firefox/tree/esr) edition of the browser will be removed soon! If you use it, clone this project, and build your own image!
-
 > [!NOTE]
 > This image is also available on [Docker Hub](https://hub.docker.com/r/tibordev/firefox) under `tibordev/firefox`.
 
