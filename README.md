@@ -1,4 +1,4 @@
-# 🦊 [Firefox](https://github.com/tibor309/firefox)
+# 🦊 Firefox
 
 This container allows you to use the [Firefox](https://www.mozilla.org/en-US/firefox/new/) web browser trough another web browser using KasmVNC. Firefox is a free web browser backed by Mozilla, a non-profit dedicated to internet health and privacy.
 
@@ -7,9 +7,6 @@ This container allows you to use the [Firefox](https://www.mozilla.org/en-US/fir
 ## Setup
 
 To set up the container, you can use docker-compose or the docker cli. Unless a parameter is flagged as 'optional', it is *mandatory* and a value must be provided. This container is using a linuxserver.io base, so you can use their [mods](https://github.com/linuxserver/docker-mods) and configurations to enable additional functionality within the container.
-
-> [!NOTE]
-> This image is also available on [Docker Hub](https://hub.docker.com/r/tibordev/firefox) under `tibordev/firefox`.
 
 ### [docker-compose](https://docs.linuxserver.io/general/docker-compose) (recommended)
 
