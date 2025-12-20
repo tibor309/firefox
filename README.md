@@ -14,7 +14,7 @@ To set up the container, you can use docker-compose or the docker cli. Unless a 
 ---
 services:
   firefox:
-    image: ghcr.io/tibor309/firefox:latest
+    image: ghcr.io/tibynx/firefox:latest
     container_name: firefox-browser
     security_opt:
       - seccomp:unconfined #optional
@@ -47,7 +47,7 @@ docker run -d \
   -v /path/to/config:/config \
   --shm-size="1gb" \
   --restart unless-stopped \
-  ghcr.io/tibor309/firefox:latest
+  ghcr.io/tibynx/firefox:latest
 ```
 
 ## Security
