@@ -2,7 +2,7 @@
 
 This container allows you to use the [Firefox](https://www.mozilla.org/en-US/firefox/new/) web browser trough another web browser using KasmVNC. Firefox is a free web browser backed by Mozilla, a non-profit dedicated to internet health and privacy.
 
-![firefox](https://github.com/user-attachments/assets/f5504c48-456d-47d3-8174-b29252a12839)
+![firefox](.github/preview.png)
 
 ## Setup
 
