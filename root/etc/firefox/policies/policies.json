@@ -23,7 +23,11 @@
       "datareporting.healthreport.service.enabled": false,
       "datareporting.healthreport.uploadEnabled": false,
       "trailhead.firstrun.branches": "nofirstrun-empty",
-      "browser.aboutwelcome.enabled": false
+      "browser.aboutwelcome.enabled": false,
+      "browser.tabs.closeWindowWithLastTab": {
+        "Value": false,
+        "Status": "locked"
+      }
     }
   }
 }
