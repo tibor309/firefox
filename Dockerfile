@@ -34,8 +34,7 @@ RUN \
     > /etc/apt/sources.list.d/mozilla.list && \
   apt-get update -y && \
   apt-get install --no-install-recommends -y \
-    firefox \
-    ^firefox-l10n && \
+    firefox && \
   echo "**** cleanup ****" && \
   apt-get autoclean && \
   rm -rf \
