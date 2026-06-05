@@ -35,6 +35,10 @@
       "browser.tabs.closeWindowWithLastTab": {
         "Value": false,
         "Status": "locked"
+      },
+      "browser.quitShortcut.disabled": {
+        "Value": true,
+        "Status": "locked"
       }
     },
     "UserMessaging": {
