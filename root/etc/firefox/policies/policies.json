@@ -61,6 +61,18 @@
       "browser.quitShortcut.disabled": {
         "Value": true,
         "Status": "locked"
+      },
+      "browser.tabs.unloadOnLowMemory": {
+        "Value": true,
+        "Status": "locked"
+      },
+      "browser.low_commit_space_threshold_percent": {
+        "Value": 100,
+        "Status": "locked"
+      },
+      "browser.tabs.min_inactive_duration_before_unload": {
+        "Value": 3600000,
+        "Status": "locked"
       }
     },
     "UserMessaging": {
