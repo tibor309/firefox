@@ -20,6 +20,11 @@
     "FirefoxSuggest": {
       "SponsoredSuggestions": false
     },
+    "SupportMenu": {
+      "Title": "GitHub Repository",
+      "URL": "http://github.com/tibynx/firefox-kasmvnc",
+      "AccessKey": "S"
+    },
     "Preferences": {
       "datareporting.policy.firstRunURL": "",
       "datareporting.policy.dataSubmissionEnabled": false,
