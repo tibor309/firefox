@@ -11,6 +11,9 @@
     "DisableProfileImport": true,
     "FirefoxHome": {
       "SponsoredTopSites": false,
+      "Highlights": false,
+      "Stories": false,
+      "Snippets": false,
       "Pocket": false,
       "SponsoredPocket": false
     },
