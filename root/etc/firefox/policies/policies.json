@@ -26,6 +26,17 @@
       "AccessKey": "S"
     },
     "SearchEngines": {
+      "Add": [
+        {
+          "Name": "Brave",
+          "URLTemplate": "https://search.brave.com/search?q={searchTerms}",
+          "SuggestURLTemplate": "https://search.brave.com/api/suggest?q={searchTerms}",
+          "Method": "GET",
+          "IconURL": "https://brave.com/favicon.ico",
+          "Alias": "@brave",
+          "Description": "Private Search Engine"
+        }
+      ],
       "Remove": ["eBay", "Wikipedia (en)", "Perplexity"],
       "Default": "DuckDuckGo"
     },
