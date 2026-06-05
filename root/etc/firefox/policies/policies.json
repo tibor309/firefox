@@ -25,6 +25,10 @@
       "URL": "http://github.com/tibynx/firefox-kasmvnc",
       "AccessKey": "S"
     },
+    "SearchEngines": {
+      "Remove": ["eBay", "Wikipedia (en)", "Perplexity"],
+      "Default": "DuckDuckGo"
+    },
     "Preferences": {
       "datareporting.policy.firstRunURL": "",
       "datareporting.policy.dataSubmissionEnabled": false,
