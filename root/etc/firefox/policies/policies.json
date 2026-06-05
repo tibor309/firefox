@@ -25,6 +25,13 @@
       "URL": "http://github.com/tibynx/firefox-kasmvnc",
       "AccessKey": "S"
     },
+    "AIControls": {
+      "Default": {
+        "Value": "blocked",
+        "Locked": true
+      }
+    },
+    "VisualSearchEnabled": false,
     "SearchEngines": {
       "Add": [
         {
