@@ -31,6 +31,14 @@
         "Value": false,
         "Status": "locked"
       }
+    },
+    "UserMessaging": {
+      "ExtensionRecommendations": false,
+      "FeatureRecommendations": false,
+      "UrlbarInterventions": false,
+      "SkipOnboarding": true,
+      "MoreFromMozilla": false,
+      "Locked": true
     }
   }
 }
