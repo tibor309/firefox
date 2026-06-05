@@ -73,7 +73,9 @@
       "browser.tabs.min_inactive_duration_before_unload": {
         "Value": 3600000,
         "Status": "locked"
-      }
+      },
+      "browser.newtabpage.activity-stream.default.sites": "",
+      "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts": false
     },
     "UserMessaging": {
       "ExtensionRecommendations": false,
