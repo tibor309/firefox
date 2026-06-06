@@ -78,7 +78,15 @@
         "Status": "locked"
       },
       "browser.newtabpage.activity-stream.default.sites": "",
-      "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts": false
+      "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts": false,
+      "browser.dataFeatureRecommendatiomns.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "extensions.htmlaboutaddons.recommendations.enabled": {
+        "Value": false,
+        "Status": "locked"
+      }
     },
     "UserMessaging": {
       "ExtensionRecommendations": false,
