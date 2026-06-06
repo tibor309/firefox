@@ -5,6 +5,7 @@
     "DisableTelemetry": true,
     "DisableFirefoxStudies": true,
     "DisablePocket": true,
+    "IPProtectionAvailable": false,
     "DisableFeedbackCommands": true,
     "DontCheckDefaultBrowser": true,
     "DisableSetDesktopBackground": true,
