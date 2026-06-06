@@ -58,6 +58,10 @@
       "datareporting.healthreport.uploadEnabled": false,
       "trailhead.firstrun.branches": "nofirstrun-empty",
       "browser.aboutwelcome.enabled": false,
+      "extensions.activeThemeID": {
+        "Value": "firefox-compact-dark@mozilla.org",
+        "Status": "default"
+      },
       "browser.tabs.closeWindowWithLastTab": {
         "Value": false,
         "Status": "locked"
