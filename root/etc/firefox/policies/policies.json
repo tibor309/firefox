@@ -1,6 +1,7 @@
 {
   "policies": {
     "DisableAppUpdate": true,
+    "DisableRemoteImprovements": true,
     "DisableTelemetry": true,
     "DisableFirefoxStudies": true,
     "DisablePocket": true,
