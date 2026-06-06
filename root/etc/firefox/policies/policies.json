@@ -19,7 +19,9 @@
       "SponsoredPocket": false
     },
     "FirefoxSuggest": {
-      "SponsoredSuggestions": false
+      "SponsoredSuggestions": false,
+      "ImproveSuggest": false,
+      "Locked": true
     },
     "SupportMenu": {
       "Title": "GitHub Repository",
