@@ -1,9 +1,11 @@
 {
   "policies": {
     "DisableAppUpdate": true,
+    "DisableRemoteImprovements": true,
     "DisableTelemetry": true,
     "DisableFirefoxStudies": true,
     "DisablePocket": true,
+    "IPProtectionAvailable": false,
     "DisableFeedbackCommands": true,
     "DontCheckDefaultBrowser": true,
     "DisableSetDesktopBackground": true,
@@ -11,11 +13,43 @@
     "DisableProfileImport": true,
     "FirefoxHome": {
       "SponsoredTopSites": false,
+      "Highlights": false,
+      "Stories": false,
+      "Snippets": false,
       "Pocket": false,
       "SponsoredPocket": false
     },
     "FirefoxSuggest": {
-      "SponsoredSuggestions": false
+      "SponsoredSuggestions": false,
+      "ImproveSuggest": false,
+      "Locked": true
+    },
+    "SupportMenu": {
+      "Title": "GitHub Repository",
+      "URL": "http://github.com/tibynx/firefox-kasmvnc",
+      "AccessKey": "S"
+    },
+    "AIControls": {
+      "Default": {
+        "Value": "blocked",
+        "Locked": true
+      }
+    },
+    "VisualSearchEnabled": false,
+    "SearchEngines": {
+      "Add": [
+        {
+          "Name": "Brave",
+          "URLTemplate": "https://search.brave.com/search?q={searchTerms}",
+          "SuggestURLTemplate": "https://search.brave.com/api/suggest?q={searchTerms}",
+          "Method": "GET",
+          "IconURL": "https://brave.com/favicon.ico",
+          "Alias": "@brave",
+          "Description": "Private Search Engine"
+        }
+      ],
+      "Remove": ["eBay", "Wikipedia (en)", "Perplexity"],
+      "Default": "DuckDuckGo"
     },
     "Preferences": {
       "datareporting.policy.firstRunURL": "",
@@ -24,10 +58,44 @@
       "datareporting.healthreport.uploadEnabled": false,
       "trailhead.firstrun.branches": "nofirstrun-empty",
       "browser.aboutwelcome.enabled": false,
+      "extensions.activeThemeID": {
+        "Value": "firefox-compact-dark@mozilla.org",
+        "Status": "default"
+      },
       "browser.tabs.closeWindowWithLastTab": {
         "Value": false,
         "Status": "locked"
+      },
+      "browser.quitShortcut.disabled": {
+        "Value": true,
+        "Status": "locked"
+      },
+      "browser.tabs.unloadOnLowMemory": {
+        "Value": true,
+        "Status": "locked"
+      },
+      "browser.low_commit_space_threshold_percent": {
+        "Value": 100,
+        "Status": "locked"
+      },
+      "browser.tabs.min_inactive_duration_before_unload": {
+        "Value": 3600000,
+        "Status": "locked"
+      },
+      "browser.newtabpage.activity-stream.default.sites": "",
+      "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts": false,
+      "extensions.htmlaboutaddons.recommendations.enabled": {
+        "Value": false,
+        "Status": "locked"
       }
+    },
+    "UserMessaging": {
+      "ExtensionRecommendations": false,
+      "FeatureRecommendations": false,
+      "UrlbarInterventions": false,
+      "SkipOnboarding": true,
+      "MoreFromMozilla": false,
+      "Locked": true
     }
   }
 }
