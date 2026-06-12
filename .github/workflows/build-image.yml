@@ -44,8 +44,9 @@ jobs:
       - name: Get package version and set image tag
         id: version
         run: |
-          package_version=$(apt list firefox | awk -F'[ /]' '/firefox/ {print $3}')
-          image_tag=$(echo "$package_version" | cut -d'~' -f1)
+          package_version=$(apt-cache policy firefox | awk -F': ' '/Candidate:/ {print $2}')
+          [ -n "$package_version" ] || { echo "Failed to determine Firefox package version" >&2; exit 1; }
+          image_tag=$(echo "$package_version" | cut -d'~' -f1 | sed -E 's/^[0-9]+://; s/[^0-9A-Za-z_.-]+/-/g')
           echo "package_version=$package_version" >> $GITHUB_OUTPUT
           echo "image_tag=$image_tag" >> $GITHUB_OUTPUT
           echo "Package Version: $package_version"
