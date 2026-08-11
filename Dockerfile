@@ -3,15 +3,14 @@ FROM ghcr.io/linuxserver/baseimage-kasmvnc:ubuntunoble
 # set labels
 ARG IMAGE_BUILD_DATE
 ARG INSTALL_VERSION
-LABEL release_channel="stable"
 LABEL org.opencontainers.image.authors="tibynx"
 LABEL org.opencontainers.image.created="${IMAGE_BUILD_DATE}"
 LABEL org.opencontainers.image.description="Web accessible Firefox browser"
-LABEL org.opencontainers.image.documentation="https://github.com/tibynx/firefox-kasmvnc/blob/main/README.md"
+LABEL org.opencontainers.image.documentation="https://github.com/tibynx/docker-firefox-kasmvnc/blob/main/README.md"
 LABEL org.opencontainers.image.licenses="GPL-3.0-only"
-LABEL org.opencontainers.image.source="https://github.com/tibynx/firefox-kasmvnc"
+LABEL org.opencontainers.image.source="https://github.com/tibynx/docker-firefox-kasmvnc"
 LABEL org.opencontainers.image.title="Firefox"
-LABEL org.opencontainers.image.url="https://github.com/tibynx/firefox-kasmvnc/packages"
+LABEL org.opencontainers.image.url="https://github.com/tibynx/docker-firefox-kasmvnc/packages"
 LABEL org.opencontainers.image.vendor="tibynx"
 LABEL org.opencontainers.image.base.name="ghcr.io/linuxserver/baseimage-kasmvnc:ubuntunoble"
 LABEL org.opencontainers.image.base.documentation="https://github.com/linuxserver/docker-baseimage-kasmvnc/blob/master/README.md"
